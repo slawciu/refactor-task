@@ -1,4 +1,4 @@
-import { EventParser } from "../";
+import { EventParserFactory } from "../../event-parsers-factory";
 
 describe('when handball match provided', () => {
   const handballMatch = {
@@ -9,7 +9,7 @@ describe('when handball match provided', () => {
   };
 
   it('should format score', () => {
-    const parser = new EventParser();
+    const parser = new EventParserFactory().create(handballMatch.sport);
 
     const score = parser.formatScore(handballMatch);
 
@@ -17,7 +17,7 @@ describe('when handball match provided', () => {
   });
 
   it('should make event name', () => {
-    const parser = new EventParser();
+    const parser = new EventParserFactory().create(handballMatch.sport);
 
     const eventName = parser.makeEventName(handballMatch);
 

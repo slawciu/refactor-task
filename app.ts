@@ -1,10 +1,10 @@
 import matches from "./data/matches";
-import { EventParser } from "./event-parser";
+import { EventParserFactory } from "./event-parsers-factory";
 
 export const buildArrayOfParsedEvents = () => {
   let matchesParsed = [];
   for (var i = 0; i < (matches.length); i++) {
-    let parser = new EventParser();
+    let parser = new EventParserFactory().create(matches[i].sport);
     let name = parser.makeEventName(matches[i]);
     let score = parser.formatScore(matches[i]);
 
