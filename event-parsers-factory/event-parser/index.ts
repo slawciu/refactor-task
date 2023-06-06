@@ -4,8 +4,8 @@ import { Participant } from "../../domain/Participant";
 import { Score } from "../../domain/Score";
 
 export class EventParser {
-  scoreFormatter: IScoreFormatter;
-  nameMaker: INameMaker;
+  private scoreFormatter: IScoreFormatter;
+  private nameMaker: INameMaker;
 
   constructor(scoreFormatter: IScoreFormatter, nameMaker: INameMaker) {
     this.scoreFormatter = scoreFormatter;
