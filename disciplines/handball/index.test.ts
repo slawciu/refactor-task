@@ -2,10 +2,10 @@ import { EventParserFactory } from "../../event-parsers-factory";
 
 describe('when handball match provided', () => {
   const handballMatch = {
-    sport: 'volleyball',
-    participant1: 'Germany',
-    participant2: 'France',
-    score: '3:0,25:23,25:19,25:21',
+    sport: 'handball',
+    participant1: 'Pogoń Szczeciń',
+    participant2: 'Azoty Puławy',
+    score: '34:26',
   };
 
   it('should format score', () => {
@@ -13,7 +13,7 @@ describe('when handball match provided', () => {
 
     const score = parser.formatScore(handballMatch);
 
-    expect(score).toBe("Main score: 3:0 (set1 25:23, set2 25:19, set3 25:21)");
+    expect(score).toBe("34:26");
   });
 
   it('should make event name', () => {
@@ -21,6 +21,6 @@ describe('when handball match provided', () => {
 
     const eventName = parser.makeEventName(handballMatch);
 
-    expect(eventName).toBe("Germany - France");
+    expect(eventName).toBe("Pogoń Szczeciń vs Azoty Puławy");
   });
 });
