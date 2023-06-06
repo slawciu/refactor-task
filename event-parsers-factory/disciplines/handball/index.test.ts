@@ -1,7 +1,8 @@
 import { EventParserFactory } from "../..";
+import { SportEvent } from "../../../domain";
 
 describe('when handball match provided', () => {
-  const handballMatch = {
+  const handballMatch: SportEvent = {
     sport: 'handball',
     participant1: 'Pogoń Szczeciń',
     participant2: 'Azoty Puławy',

@@ -1,7 +1,8 @@
 import { EventParserFactory } from "../..";
+import { SportEvent } from "../../../domain";
 
 describe('when tennis match provided', () => {
-  const tennisMatch = {
+  const tennisMatch: SportEvent = {
     sport: "tennis",
     participant1: 'Maria Sharapova',
     participant2: 'Serena Williams',
