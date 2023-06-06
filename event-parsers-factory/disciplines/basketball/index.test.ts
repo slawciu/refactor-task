@@ -1,4 +1,4 @@
-import { EventParserFactory } from "../../event-parsers-factory";
+import { EventParserFactory } from "../..";
 
 describe('when basketball match provided', () => {
   const basketballMatch = {
