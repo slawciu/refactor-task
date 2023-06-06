@@ -19,7 +19,7 @@ describe('when soccer match provided', () => {
   it('should make event name', () => {
     const parser = new EventParserFactory().create(soccerMatch.sport);
 
-    const eventName = parser.makeEventName(soccerMatch);
+    const eventName = parser.makeEventName([soccerMatch.participant1, soccerMatch.participant2]);
 
     expect(eventName).toBe("Chelsea - Arsenal");
   });

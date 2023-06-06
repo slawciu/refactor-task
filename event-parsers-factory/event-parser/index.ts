@@ -1,5 +1,6 @@
 import { INameMaker } from "../name-makers";
 import { IScoreFormatter } from "../score-formatters";
+import { Participant } from "../../domain/Participant";
 
 export class EventParser {
   scoreFormatter: IScoreFormatter;
@@ -9,12 +10,12 @@ export class EventParser {
     this.scoreFormatter = scoreFormatter;
     this.nameMaker = nameMaker;
   }
-  makeEventName(match) {
+  makeEventName(participants: Participant[]) {
     if (this.nameMaker === undefined) {
       return "Exception: invalid sport";
     }
 
-    return this.nameMaker.makeName(match.participant1, match.participant2);
+    return this.nameMaker.makeName(participants[0], participants[1]);
   }
 
   formatScore(match) {

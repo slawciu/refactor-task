@@ -22,7 +22,7 @@ describe('when basketball match provided', () => {
   it('should make event name', () => {
     const parser = new EventParserFactory().create(basketballMatch.sport);
 
-    const eventName = parser.makeEventName(basketballMatch);
+    const eventName = parser.makeEventName([basketballMatch.participant1, basketballMatch.participant2]);
 
     expect(eventName).toBe("GKS Tychy - GKS Katowice");
   });

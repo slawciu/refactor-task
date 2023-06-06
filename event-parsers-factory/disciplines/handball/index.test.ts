@@ -19,7 +19,7 @@ describe('when handball match provided', () => {
   it('should make event name', () => {
     const parser = new EventParserFactory().create(handballMatch.sport);
 
-    const eventName = parser.makeEventName(handballMatch);
+    const eventName = parser.makeEventName([handballMatch.participant1, handballMatch.participant2]);
 
     expect(eventName).toBe("Pogoń Szczeciń vs Azoty Puławy");
   });

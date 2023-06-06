@@ -19,7 +19,7 @@ describe('when provided match with unknown discipline', () => {
 
     const parser = new EventParserFactory().create(notSupportedMatch.sport);
 
-    const eventName = parser.makeEventName(notSupportedMatch);
+    const eventName = parser.makeEventName([undefined, undefined]);
 
     expect(eventName).toBe('Exception: invalid sport');
   });

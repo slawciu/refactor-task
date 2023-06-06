@@ -19,7 +19,7 @@ describe('when tennis match provided', () => {
   it('should make event name', () => {
     const parser = new EventParserFactory().create(tennisMatch.sport);
 
-    const eventName = parser.makeEventName(tennisMatch);
+    const eventName = parser.makeEventName([tennisMatch.participant1, tennisMatch.participant2]);
 
     expect(eventName).toBe("Maria Sharapova vs Serena Williams");
   });
