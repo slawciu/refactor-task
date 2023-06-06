@@ -13,8 +13,8 @@ export class EventParserFactory {
           .build();
       case 'soccer':
         return builder
-          .withDashedParticipantsNameMaker()
           .withStraightScoreFormatter()
+          .withDashedParticipantsNameMaker()
           .build();
       case 'tennis':
         return builder
@@ -23,8 +23,8 @@ export class EventParserFactory {
           .build();
       case 'volleyball':
         return builder
-          .withDashedParticipantsNameMaker()
           .withScoreIncludingSetsFormatter()
+          .withDashedParticipantsNameMaker()
           .build();
       case 'handball':
         return builder
