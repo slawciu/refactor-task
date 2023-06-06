@@ -6,7 +6,7 @@ export const buildArrayOfParsedEvents = () => {
   for (var i = 0; i < (matches.length); i++) {
     let parser = new EventParserFactory().create(matches[i].sport);
     let name = parser.makeEventName([matches[i].participant1, matches[i].participant2]);
-    let score = parser.formatScore(matches[i]);
+    let score = parser.formatScore(matches[i].score);
 
     if (name !== 'Exception: invalid sport' && score !== 'Exception: invalid sport') {
       matchesParsed.push({

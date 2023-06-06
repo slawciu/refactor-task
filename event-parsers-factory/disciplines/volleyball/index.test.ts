@@ -11,7 +11,7 @@ describe('when volleyball match provided', () => {
   it('should format score', () => {
     const parser = new EventParserFactory().create(volleyballMatch.sport);
 
-    const score = parser.formatScore(volleyballMatch);
+    const score = parser.formatScore(volleyballMatch.score);
 
     expect(score).toBe("Main score: 3:0 (set1 25:23, set2 25:19, set3 25:21)");
   });
