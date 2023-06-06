@@ -1,23 +1,24 @@
 import matches from "./data/matches";
+import { SportEvent } from "./domain";
 import { EventParserFactory } from "./event-parsers-factory";
 
 export const buildArrayOfParsedEvents = () => {
-  let matchesParsed = [];
-  for (var i = 0; i < (matches.length); i++) {
-    let parser = new EventParserFactory().create(matches[i].sport);
-    let name = parser.makeEventName([matches[i].participant1, matches[i].participant2]);
-    let score = parser.formatScore(matches[i].score);
+  return matches.map((match: SportEvent) => {
+    try {
 
-    if (name !== 'Exception: invalid sport' && score !== 'Exception: invalid sport') {
-      matchesParsed.push({
+      let parser = new EventParserFactory().create(match.sport);
+      let name = parser.makeEventName([match.participant1, match.participant2]);
+      let score = parser.formatScore(match.score);
+
+      return {
         name,
         score
-      });
+      };
+    } catch (e: any) {
+      // it wasn't registered before neither, but maybe we should notify someone...
     }
-  }
-  return matchesParsed;
+  }).filter(x => x);
 };
 
-const main = () => console.log(buildArrayOfParsedEvents());
+console.log(buildArrayOfParsedEvents());
 
-main();

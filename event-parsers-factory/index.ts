@@ -32,7 +32,7 @@ export class EventParserFactory {
           .withVersusNameMaker()
           .build();
       default:
-        return builder.build();
+        throw new Error("invalid sport");
     }
   }
 }
