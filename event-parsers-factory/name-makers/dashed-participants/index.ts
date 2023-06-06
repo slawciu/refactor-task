@@ -1,7 +1,8 @@
 import { INameMaker } from "..";
+import { Participant } from "../../../domain";
 
 export class DashedParticipantsNameMaker implements INameMaker {
-  makeName(participant1: string, participant2: string): string {
-    return `${participant1} - ${participant2}`;
+  makeName(participants: Participant[]): string {
+    return participants.join(" - ");
   }
 }

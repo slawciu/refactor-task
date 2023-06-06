@@ -1,8 +1,9 @@
 import { VersusParticipantsNameMaker } from "./versus-participants";
 import { DashedParticipantsNameMaker } from "./dashed-participants";
+import { Participant } from "../../domain";
 
 export interface INameMaker {
-  makeName(participant1: string, participant2: string): string;
+  makeName(participants: Participant[]): string;
 }
 
 export { VersusParticipantsNameMaker, DashedParticipantsNameMaker };

@@ -1,7 +1,8 @@
 import { INameMaker } from "..";
+import { Participant } from "../../../domain";
 
 export class VersusParticipantsNameMaker implements INameMaker {
-  makeName(participant1: string, participant2: string): string {
-    return `${participant1} vs ${participant2}`;
+  makeName(participants: Participant[]): string {
+    return participants.join(" vs ");
   }
 }

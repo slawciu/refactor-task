@@ -16,7 +16,7 @@ export class EventParser {
       return "Exception: invalid sport";
     }
 
-    return this.nameMaker.makeName(participants[0], participants[1]);
+    return this.nameMaker.makeName(participants);
   }
 
   formatScore(score: Score) {
