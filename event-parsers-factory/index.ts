@@ -1,6 +1,11 @@
 import { EventParser } from "./event-parser";
 import { EventParserBuilder } from "./event-parser-builder";
 
+/**
+ * this class can be also responsible for adding some validators
+ * for score format in the same manner how formatters and name makers
+ * are added
+ */
 export class EventParserFactory {
   create(discipline: string): EventParser {
     const builder = new EventParserBuilder();
