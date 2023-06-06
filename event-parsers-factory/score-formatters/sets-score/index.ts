@@ -3,15 +3,13 @@ import { IScoreFormatter } from "..";
 
 export class ScoreIncludingSetsFormatter implements IScoreFormatter {
   format(score: Score): string {
-    var scores = /([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+),([0-9]+\:[0-9]+)/.exec(score as string);
-    var set1 = scores[2];
-    var set2 = scores[3];
-    var set3 = scores[4];
+    let scores = (score as string).split(',');
+    if (!scores || scores.length < 4)
+      throw new Error("Invalid score format");
 
-    return "Main score: " + scores[1] + " ("
-      + "set1 " + set1 + ", "
-      + "set2 " + set2 + ", "
-      + "set3 " + set3
-      + ")";
+    let main = scores[0];
+    let sets = scores.slice(1);
+
+    return `Main score: ${main} (${sets.map((set, idx) => `set${idx + 1} ${set}`).join(", ")})`;
   }
 }

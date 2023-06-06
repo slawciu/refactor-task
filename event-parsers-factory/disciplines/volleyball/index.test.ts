@@ -25,3 +25,18 @@ describe('when volleyball match provided', () => {
     expect(eventName).toBe("Germany - France");
   });
 });
+
+const scoreCases = [
+  ['3:0,25:23,25:19,25:21', 'Main score: 3:0 (set1 25:23, set2 25:19, set3 25:21)'],
+  ['3:2,25:23,25:19,21:25,18:25,15:1', 'Main score: 3:2 (set1 25:23, set2 25:19, set3 21:25, set4 18:25, set5 15:1)'],
+];
+
+describe('when score provided', () => {
+  test.each(scoreCases)('should return it in a proper format', (givenScore: string, expectedFormattedScore: string) => {
+    const parser = new EventParserFactory().create('volleyball');
+
+    const score = parser.formatScore(givenScore);
+
+    expect(score).toBe(expectedFormattedScore);
+  });
+});
