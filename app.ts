@@ -52,19 +52,22 @@ class EventParser {
   }
 }
 
-let matchesParsed = [];
 
-for (var i = 0; i < (matches.length); i++) {
-  let parser = new EventParser();
-  let name = parser.makeEventName(matches[i]);
-  let score = parser.formatScore(matches[i]);
+export const buildArrayOfParsedEvents = () => {
+  let matchesParsed = [];
+  for (var i = 0; i < (matches.length); i++) {
+    let parser = new EventParser();
+    let name = parser.makeEventName(matches[i]);
+    let score = parser.formatScore(matches[i]);
 
-  if (name !== 'Exception: invalid sport' && score !== 'Exception: invalid sport') {
-    matchesParsed.push({
-      name,
-      score
-    });
+    if (name !== 'Exception: invalid sport' && score !== 'Exception: invalid sport') {
+      matchesParsed.push({
+        name,
+        score
+      });
+    }
   }
-}
+  return matchesParsed;
+};
 
-console.log(matchesParsed);
+console.log(buildArrayOfParsedEvents());
