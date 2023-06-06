@@ -32,6 +32,14 @@ export class EventParserBuilder {
   }
 
   build() {
+    if (this.scoreFormatter === undefined) {
+      throw new Error("Missing score formatter configuration");
+    }
+
+    if (this.scoreFormatter === undefined) {
+      throw new Error("Missing name maker configuration");
+    }
+
     return new EventParser(this.scoreFormatter, this.nameMaker);
   }
 }

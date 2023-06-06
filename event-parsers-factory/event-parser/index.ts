@@ -12,18 +12,10 @@ export class EventParser {
     this.nameMaker = nameMaker;
   }
   makeEventName(participants: Participant[]) {
-    if (this.nameMaker === undefined) {
-      return "Exception: invalid sport";
-    }
-
     return this.nameMaker.makeName(participants);
   }
 
   formatScore(score: Score) {
-    if (this.scoreFormatter === undefined) {
-      return "Exception: invalid sport";
-    }
-
     return this.scoreFormatter.format(score);
   }
 }
